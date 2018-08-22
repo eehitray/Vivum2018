@@ -22,5 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('recipe/', include('recipeblog.urls')),
     path('', TemplateView.as_view(template_name="index.html")),
+<<<<<<< HEAD
     path('index.html', TemplateView.as_view(template_name="index.html")),
+=======
+>>>>>>> cc64539fb20d41c4463bb364506b2a96283bc38f
 ]
