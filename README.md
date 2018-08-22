@@ -1,3 +1,8 @@
 # Vivum2018
 Repository for Vivum 2018
-{insert theme here}
+
+Topics:
+- Health and Fitness
+- Education and Innovation
+- Community Development
+- IOT
