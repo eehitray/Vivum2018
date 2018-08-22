@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>Argon Design System - Free Design System for Bootstrap 4</title>
+    <title>Wefit</title>
     <link rel="stylesheet" media="screen" href="{% static 'particles/demo/css/style.css' %}">
     <!--<link rel="stylesheet" media="screen" href="css/style.css">-->
     <!-- Favicon -->
@@ -29,7 +29,7 @@
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light">
       <div class="container">
         <a class="navbar-brand mr-lg-5" href="./index.html">
-          <img src="{% static 'assets/img/brand/white.png' %}">
+          <img src="{% static 'assets/img/brand/white.png' %}" style="height: 8em;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -52,31 +52,16 @@
           </div>
           <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
             <li class="nav-item dropdown">
-              <a href="{% url 'recipeblog:index' %}" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                <i class="ni ni-collection d-lg-none"></i>
-                <span class="nav-link-inner--text">Recipe Blog</span>
-              </a>
+              <button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: white;">Recipe Blog</button>
             </li>
             <li class="nav-item dropdown">
-              <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                <i class="ni ni-collection d-lg-none"></i>
-                <span class="nav-link-inner--text">Fitness Tracker</span>
-              </a>
+              <button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: white;">Fitness Tracker</button>
             </li>
             <li class="nav-item dropdown">
-              <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                <i class="ni ni-collection d-lg-none"></i>
-                <span class="nav-link-inner--text">Contact</span>
-              </a>
+              <button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: white;">Contact</button>
             </li>
           </ul>
-          <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="#" target="_blank" data-toggle="tooltip" title="Star us on Github">
-                <i class="fa fa-github"></i>
-                <span class="nav-link-inner--text d-lg-none">Github</span>
-              </a>
-            </li>
+          <ul class="navbar-nav align-items-lg-center ml-lg-auto">            
             <!-- Sign Up -->
             <li class="nav-item d-none d-lg-block ml-lg-4">
               <a href="#" target="_blank" class="btn btn-neutral btn-icon">
