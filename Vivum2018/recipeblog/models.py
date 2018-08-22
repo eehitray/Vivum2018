@@ -13,6 +13,3 @@ class Post(models.Model):
 
 	def getIngredientsList(self):
 		return json.loads(self.ingredients)
-	
-	def __str__(self):
-		return self.title
