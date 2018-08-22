@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .models import Post
 
-# Create your views here.
+def index(request):
+	lastRecipes = Post.objects.order_by('-datePosted')
+	return render(request, 'recipeblog/index.html', {'lastRecipes': lastRecipes})
