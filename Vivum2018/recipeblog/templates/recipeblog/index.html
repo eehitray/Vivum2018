@@ -25,7 +25,7 @@
   <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light">
       <div class="container">
-        <a class="navbar-brand mr-lg-5" href="./index.html">
+        <a class="navbar-brand mr-lg-5" href="{% url 'recipeblog:mainIndex' %}">
           <img src="/static/assets/img/brand/white.png" style="height: 8em;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
           <div class="navbar-collapse-header">
             <div class="row">
               <div class="col-6 collapse-brand">
-                <a href="./index.html">
+                <a href="{% url 'recipeblog:mainIndex' %}">
                   <img src="/static/assets/img/brand/blue.png">
                 </a>
               </div>
