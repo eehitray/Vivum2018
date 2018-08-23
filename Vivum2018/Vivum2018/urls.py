@@ -21,6 +21,7 @@ app_name = 'main'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('recipe/', include('recipeblog.urls')),
+    path('404.html', TemplateView.as_view(template_name="404.html"), name='error'),
     path('', TemplateView.as_view(template_name="index.html")),
     path('index.html', TemplateView.as_view(template_name="index.html"), name='mainIndex'),
     path('accounts/', include('accounts.urls')),
