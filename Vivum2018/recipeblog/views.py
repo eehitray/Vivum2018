@@ -30,9 +30,9 @@ def submit(request):
 			ingredients = "'" + ingredients + "'"
 			p.setIngredients(ingredientsText = ingredients)
 			p.save()
-			return HttpResponse('that worked yo')
+			return blog(request, recipename)
 	else: 
-		return HttpResponse('404 nigga')
+		return render(request, '404.html')
 
 def blog(request, rname):
 	try:
@@ -61,7 +61,7 @@ def sbName(request):
 		else:
 			return render(request, 'recipeblog/index.html', {'lastRecipes': q, 'text': 'Search results for ' + rname})
 	else:
-		return HttpResponse('404 nigga')
+		return render(request, '404.html')
 
 def sbIngredients(request):
 	if (request.POST):
@@ -82,4 +82,4 @@ def sbIngredients(request):
 		else:
 			return render(request, 'recipeblog/index.html', {'lastRecipes': ln, 'text': 'Search results for the given ingredients'})
 	else:
-		return HttpResponse('404 nigga')
+		return render(request, '404.html')
