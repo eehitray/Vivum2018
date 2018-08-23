@@ -50,10 +50,16 @@
             </li>
           </ul>
           <ul class="navbar-nav align-items-lg-center ml-lg-auto">   
+            <li class="nav-item dropdown">
+              <a href="{% url 'recipeblog:index' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Sign In</button></a>
+            </li>
             <li class="nav-item d-none d-lg-block ml-lg-4">
               <a href="#" target="_blank" class="btn btn-neutral btn-icon">
                 <span class="nav-link-inner--text">Sign Up</span>
               </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="{% url 'recipeblog:index' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Sign Out</button></a>
             </li>
           </ul>
         </div>
