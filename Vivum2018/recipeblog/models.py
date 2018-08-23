@@ -1,9 +1,5 @@
 from django.db import models
 import json
-
-from django.db import models
-import json
-
 class Post(models.Model):
 	title = models.CharField(max_length=100)
 	postedBy = models.CharField(max_length=100)
