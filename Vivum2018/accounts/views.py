@@ -6,14 +6,15 @@ from .models import FalseUser
 def signup_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
-        f = FalseUser(
-                    gender = request.POST['gender']
-                )
         if form.is_valid():
             user = form.save()
+            f = FalseUser(
+                    gender = request.POST['gender'],
+                    user = user
+            )
             f.save()
             login(request, user)
-            return redirect('accounts:test')
+            return redirect('accounts:signup')
     return render(request, 'accounts/signup.html')
 
 def login_view(request):
