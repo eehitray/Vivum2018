@@ -24,7 +24,7 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             return redirect('accounts:test')
-    return render(request, 'accounts/signup.html')
+    return render(request, 'accounts/signin.html')
 
 def test_view(request):
     return render(request, 'accounts/test.html')
