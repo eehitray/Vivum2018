@@ -96,30 +96,26 @@
                 </br>
                 <p style="color: lightgrey;">- Search a recipe - </p>
                 <div class="form-group">
-                  <div class="input-group mb-4" style="margin-right: 50px;">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
-                    </div>
-                    <form action="{% url 'recipeblog:searchName' %}" method="post">
-                      {% csrf_token %}
-                    <input class="form-control" name="rsName" placeholder="Search by Name" type="text" style="margin-right: 0px;">
-                    
-                    <button class="btn btn-1 btn-outline-primary" type="submit" style="border-color: transparent; color: white;">Search</button>
+                  <form action="{% url 'recipeblog:searchName' %}" method="post"> {% csrf_token %}
+                    <div class="input-group mb-4" style="margin-right: 50px;">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                      </div>
+                      <input class="form-control" name="rsName" placeholder="Search by Name" type="text">        
+                      <button class="btn btn-1 btn-outline-primary" type="submit" style="border-color: transparent; color: white;">Search</button>
+                    </div>                  
                   </form>
-                  </div>
-                  
                 </div>
                 <div class="form-group">
-                  <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
-                    </div>
-                    <form action="{% url 'recipeblog:searchIngredients' %}" method="post">
-                      {% csrf_token %}
-                    <input class="form-control" name="rsIng" placeholder="Search by Ingredients" type="text">
-                    <button class="btn btn-1 btn-outline-primary" type="submit" style="border-color: transparent; color: white;">Search</button>
-                  </form>
-                 </div>                
+                  <form action="{% url 'recipeblog:searchIngredients' %}" method="post"> {% csrf_token %}
+                    <div class="input-group mb-4">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                      </div>
+                      <input class="form-control" name="rsIng" placeholder="Search by Ingredients" type="text">
+                      <button class="btn btn-1 btn-outline-primary" type="submit" style="border-color: transparent; color: white;">Search</button>
+                   </div>
+                  </form>                
                 </div>
                 <p style="color: lightgrey;">- Or add one here - </p>
                 <a href="{% url 'recipeblog:form' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: white; color: white;">Submit a recipe</button></a>
@@ -137,9 +133,9 @@
     <section class="section section-lg pt-lg-0 mt--200">
       <div class="container">
         <div class="row justify-content-center">
-          {% for recipe in lastRecipes %}
           <div class="col-lg-12">
             <div class="row row-grid">
+             {% for recipe in lastRecipes %}
               <div class="col-lg-4" style="padding-bottom: 3em;">
                 <div class="card card-lift--hover shadow border-0">
                   <div class="card-body py-5">
@@ -150,9 +146,9 @@
                   </div>
                 </div>
               </div>
+             {% endfor %}
             </div>
           </div>
-          {% endfor %}
         </div>
       </div>
     </section>    
