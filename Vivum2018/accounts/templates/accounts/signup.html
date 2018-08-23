@@ -79,7 +79,8 @@
                 <div class="text-center text-muted mb-4">
                   <small>Sign up with credentials</small>
                 </div>
-                <form role="form">
+                <form action="{% url 'accounts:signup' %}" method="post">
+                  {% csrf_token %}
                   <div class="form-group">
                     <div class="input-group input-group-alternative mb-3">
                       <div class="input-group-prepend">
@@ -109,7 +110,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Confirm Password" type="confirmpassword" name="password2" required id="id_password2">
+                      <input class="form-control" placeholder="Confirm Password" type="password" name="password2" required id="id_password2">
                     </div>
                   </div>
                   <div class="text-center">

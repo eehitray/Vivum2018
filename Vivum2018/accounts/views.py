@@ -6,12 +6,11 @@ from .models import FalseUser
 def signup_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
-
-        if form.is_valid():
-            user = form.save()
-            f = FalseUser(
+        f = FalseUser(
                     gender = request.POST['gender']
                 )
+        if form.is_valid():
+            user = form.save()
             f.save()
             login(request, user)
             return redirect('accounts:test')
