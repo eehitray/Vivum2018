@@ -51,3 +51,35 @@ def blog(request, rname):
 		print(ingredients)
 		return render(request, 'recipeblog/recipedetail.html', {'title': title, 'postedBy': postedBy, 'ingredients': ingredients, 'contents': contents, 'picture': picture, 'datePosted': date})
 
+def sbName(request):
+	if (request.POST):
+		rname= request.POST['rsName']
+	
+		q = Post.objects.filter(title__icontains=rname)
+		if (len(q) == 0 or rname==''):
+			return render(request, 'recipeblog/index.html', {'text': 'No such recipes were found.'})
+		else:
+			return render(request, 'recipeblog/index.html', {'lastRecipes': q, 'text': 'Search results for ' + rname})
+	else:
+		return HttpResponse('404 nigga')
+
+def sbIngredients(request):
+	if (request.POST):
+		ingredients = request.POST['rsIng']
+		l = Post.objects.order_by('title')
+		ln = []
+		for i in l:
+			flag = 1
+			k = i.getIngredientsList()[1:len(i.getIngredientsList()) - 1].split(', ')
+			for j in ingredients.split(', '):
+				if j not in k:
+					flag = 0
+					break
+			if (flag):
+				ln.append(i)
+		if (len(ln) == 0):
+			return render(request, 'recipeblog/index.html', {'text': 'No such recipes were found.'})
+		else:
+			return render(request, 'recipeblog/index.html', {'lastRecipes': ln, 'text': 'Search results for the given ingredients'})
+	else:
+		return HttpResponse('404 nigga')

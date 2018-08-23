@@ -8,6 +8,4 @@ def signup_view(request):
         if form.is_valid():
             form.save()
             return redirect('accounts:signup')
-    else:
-        form = UserCreationForm()
-    return render(request, 'accounts/signup.html', { 'form' : form })
+    return render(request, 'accounts/register.html')
