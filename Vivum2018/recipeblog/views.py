@@ -21,6 +21,7 @@ def submit(request):
 		else:
 			p = Post(
 					title=recipename,
+					postedBy=username,
 					ingredients='',
 					contents=instructions,
 					picture=url,
@@ -32,4 +33,21 @@ def submit(request):
 			return HttpResponse('that worked yo')
 	else: 
 		return HttpResponse('404 nigga')
+
+def blog(request, rname):
+	try:
+		q = Post.objects.get(title = rname)
+	except:
+		return HttpResponse('404 nigga')
+	else:
+		title = q.title
+		postedBy = q.postedBy
+		ingredients = q.getIngredientsList().split(', ')
+		ingredients[0] = ingredients[0][1:]
+		ingredients[len(ingredients) - 1] = ingredients[len(ingredients) - 1][: len(ingredients[len(ingredients) - 1]) - 1]
+		contents = q.contents
+		picture = q.picture
+		date = q.datePosted
+		print(ingredients)
+		return render(request, 'recipeblog/recipedetail.html', {'title': title, 'postedBy': postedBy, 'ingredients': ingredients, 'contents': contents, 'picture': picture, 'datePosted': date})
 

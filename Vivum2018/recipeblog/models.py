@@ -6,6 +6,7 @@ import json
 
 class Post(models.Model):
 	title = models.CharField(max_length=100)
+	postedBy = models.CharField(max_length=100)
 	ingredients = models.CharField(max_length=10000)
 	contents = models.TextField()
 	picture = models.URLField(max_length=500)
