@@ -5,9 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
-    <meta name="author" content="Creative Tim">
-    <title>Argon Design System - Free Design System for Bootstrap 4</title>
+    <title>Error 404</title>
     <link rel="stylesheet" media="screen" href="{% static 'particles/demo/css/style.css' %}">
     <!-- Favicon -->
     <link href="{% static 'assets/img/brand/favicon.png' %}" rel="icon" type="image/png">
@@ -50,32 +48,13 @@
           </div>
           <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
             <li class="nav-item dropdown">
-              <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                <i class="ni ni-collection d-lg-none"></i>
-                <span class="nav-link-inner--text">Recipie Blog</span>
-              </a>
+              <a href="{% url 'recipeblog:index' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Recipe Blog</button></a>
             </li>
             <li class="nav-item dropdown">
-              <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                <i class="ni ni-collection d-lg-none"></i>
-                <span class="nav-link-inner--text">Fitness Tracker</span>
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                <i class="ni ni-collection d-lg-none"></i>
-                <span class="nav-link-inner--text">Contact</span>
-              </a>
+              <button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Nutrition</button>
             </li>
           </ul>
           <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="#" target="_blank" data-toggle="tooltip" title="Star us on Github">
-                <i class="fa fa-github"></i>
-                <span class="nav-link-inner--text d-lg-none">Github</span>
-              </a>
-            </li>
-            <!-- Sign Up -->
             <li class="nav-item d-none d-lg-block ml-lg-4">
               <a href="#" target="_blank" class="btn btn-neutral btn-icon">
                 <span class="nav-link-inner--text">Sign Up</span>
