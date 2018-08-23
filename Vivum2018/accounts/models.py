@@ -8,3 +8,6 @@ class FalseUser(models.Model):
 	age = models.IntegerField(default='-1')
 	gender = models.CharField(max_length=1, default='M')
 	activity = models.CharField(max_length=200, default='invalid')
+
+	def __str__(self):
+		return user.get_username()
