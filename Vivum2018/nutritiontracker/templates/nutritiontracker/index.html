@@ -154,32 +154,7 @@
                     </div>
                   </div>
                 </div>
-                <h6>Activity</h6>
-                 <div class="custom-control custom-radio mb-3">
-                  <input name="activity" class="custom-control-input" id="customRadio1" checked type="radio">
-                  <label class="custom-control-label" for="customRadio1">
-                    <span>Sedentary - little or no exercise</span>
-                  </label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                  <input name="activity" class="custom-control-input" id="customRadio2" type="radio">
-                  <label class="custom-control-label" for="customRadio2">
-                    <span>Lightly Active - exercise/sports 1-3 times/week</span>
-                  </label>
-                </div>
-
-                <div class="custom-control custom-radio mb-3">
-                  <input name="activity" class="custom-control-input" id="customRadio1" checked type="radio">
-                  <label class="custom-control-label" for="customRadio3">
-                    <span>Very Active - exercise/sports 6-7 times/week</span>
-                  </label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                  <input name="activity" class="custom-control-input" id="customRadio2" type="radio">
-                  <label class="custom-control-label" for="customRadio4">
-                    <span>Extra Active - very hard exercise/sports or physical job</span>
-                  </label>
-                </div>
+                
                 <p></br></p>
                 <button type="submit" class="btn btn-primary">Calculate</button>
                
@@ -195,6 +170,7 @@
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <input class="form-control" placeholder="Name" type="text" name="food" autofocus required id="id_username">
+                  <input class="form-control" placeholder="Quantity in grams" type="text" name="qty">
                 </div>
               </div>    
               <div class="text-center">
@@ -202,9 +178,9 @@
               </div>
             </form>
             <p></br></p>
-            <p>Placeholder</p>
+            {% if recipeNotFound %}<p>Placeholder</p>{% endif %}
             <p></br></br></p>
-            <!-- Crard Here -->
+            {% if recipeFound %}
             <div class="col-lg-4" style="padding-bottom: 3em;">
               <div class="card card-lift--hover shadow border-0">
                 <div class="card-body py-5">
@@ -214,6 +190,7 @@
               </div>
             </div>              
             <p class="description mt-3">Added Food</p>
+            {% endif %}
             {% endif %}
           </div>
         </div>
