@@ -100,8 +100,12 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Search by Name" type="text" style="margin-right: 0px;">
-                    <a href="form.html"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: white;">Search</button></a>
+                    <form action="{% url 'recipeblog:searchName' %}" method="post">
+                      {% csrf_token %}
+                    <input class="form-control" name="rsName" placeholder="Search by Name" type="text" style="margin-right: 0px;">
+                    
+                    <button class="btn btn-1 btn-outline-primary" type="submit" style="border-color: transparent; color: white;">Search</button>
+                  </form>
                   </div>
                   
                 </div>
@@ -110,13 +114,18 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Search by Ingredients" type="text">
-                    <a href="form.html"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: white;">Search</button></a>
-                  </div>                
+                    <form action="{% url 'recipeblog:searchIngredients' %}" method="post">
+                      {% csrf_token %}
+                    <input class="form-control" name="rsIng" placeholder="Search by Ingredients" type="text">
+                    <button class="btn btn-1 btn-outline-primary" type="submit" style="border-color: transparent; color: white;">Search</button>
+                  </form>
+                 </div>                
                 </div>
                 <p style="color: lightgrey;">- Or add one here - </p>
-                <a href="form.html"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: white; color: white;">Submit a recipe</button></a>
-                <h1 class="display-3  text-white"></br>Placeholder</h1>
+                <a href="{% url 'recipeblog:form' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: white; color: white;">Submit a recipe</button></a>
+                {% if text %}
+                <h1 class="display-3  text-white"></br>{{text}}</h1>
+                {% endif %}
               </div>
             </div>
           </div>
@@ -147,8 +156,6 @@
         </div>
       </div>
     </section>    
-    {% else %}
-    <p> No recipes :( </p>
     {% endif %}
   </main>
   <footer class="footer has-cards">
