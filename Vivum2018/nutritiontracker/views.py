@@ -39,14 +39,14 @@ def update_details(request):
                 BMR += 6.25 * height + 5
             else:
                 BMR += 6.25 * height - 161
-            f = FalseUser (
-                age=age,
-                height=height,
-                weight=weight,
-                calorieGoal=BMR*7
-            )
+            
+            cur_false_user.age=age,
+            cur_false_user.height=height,
+            cur_false_user.weight=weight,
+            cur_false_user.calorieGoal=BMR*7
+            
 
-            f.save()
+            cur_false_user.save()
 
             return render()
     else:
