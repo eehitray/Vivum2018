@@ -15,7 +15,7 @@ def signup_view(request):
             f.save()
             login(request, user)
             return redirect('accounts:test')
-    return render(request, 'accounts/register.html')
+    return render(request, 'accounts/signup.html')
 
 def login_view(request):
     if request.method == 'POST':
