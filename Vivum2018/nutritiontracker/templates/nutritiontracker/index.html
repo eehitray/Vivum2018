@@ -55,10 +55,16 @@
           </ul>
           <ul class="navbar-nav align-items-lg-center ml-lg-auto">            
             <!-- Sign Up -->
+            <li class="nav-item dropdown">
+              <a href="{% url 'recipeblog:index' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Sign In</button></a>
+            </li>
             <li class="nav-item d-none d-lg-block ml-lg-4">
               <a href="#" target="_blank" class="btn btn-neutral btn-icon">
                 <span class="nav-link-inner--text">Sign Up</span>
               </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="{% url 'recipeblog:index' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Sign Out</button></a>
             </li>
           </ul>
         </div>
@@ -186,6 +192,33 @@
               </form>
               </div>
             </div>
+            <h5></br></br>Your Curent Goal : </h5><p style="text-align: center;"></br>placeholder by placeholder</br></p>
+            <h5></br>Enter food consumed : </br></br></h5>
+            <form role="form" action="{% url 'accounts:login'  %}" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <input class="form-control" placeholder="Name" type="text" name="food" autofocus required id="id_username">
+                </div>
+              </div>    
+              <div class="text-center">
+                <input type="submit" class="btn btn-primary mt-4" value="Submit"/ >
+              </div>
+            </form>
+            <p></br></p>
+            <p>Placeholder</p>
+            <p></br></br></p>
+            <!-- Crard Here -->
+            <div class="col-lg-4" style="padding-bottom: 3em;">
+              <div class="card card-lift--hover shadow border-0">
+                <div class="card-body py-5">
+                  <img src="{{recipe.picture}}" style="width: 100%; -moz-border-radius: 5px; background: #fff; border-radius: 5px;">
+                  <h6 class="text-primary text-uppercase"></br>Apple</h6>
+                  <p class="description mt-3">Calories</p>    
+                </div>
+              </div>
+            </div>              
+            <p class="description mt-3">Added Food</p>
           </div>
         </div>
       </div>
