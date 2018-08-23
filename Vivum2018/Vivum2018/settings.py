@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'recipeblog.apps.RecipeblogConfig',
     'accounts',
+    'nutritiontracker',
 ]
 
 MIDDLEWARE = [
