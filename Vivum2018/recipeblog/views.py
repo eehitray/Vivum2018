@@ -38,7 +38,7 @@ def blog(request, rname):
 	try:
 		q = Post.objects.get(title = rname)
 	except:
-		return HttpResponse('404 nigga')
+		return render(request, '404.html')
 	else:
 		title = q.title
 		postedBy = q.postedBy
