@@ -59,6 +59,8 @@ def sbName(request):
 		if (len(q) == 0 or rname==''):
 			return render(request, 'recipeblog/index.html', {'text': 'No such recipes were found.'})
 		else:
+			return render(request, 'recipeblog/index.html', {'lastRecipes': q, 'text': 'Search results for ' + rname})
+	else:
 		return HttpResponse('404 nigga')
 
 def sbIngredients(request):
