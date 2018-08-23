@@ -11,4 +11,4 @@ class FalseUser(models.Model):
 	calorieDate = models.DateField(null=True, blank=True)
 
 	def __str__(self):
-		return user.get_username()
+		return self.user.get_username()

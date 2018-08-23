@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from .models import FalseUser
 
 def signup_view(request):
@@ -26,6 +26,10 @@ def login_view(request):
             login(request, user)
             return redirect('accounts:test')
     return render(request, 'accounts/signin.html')
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'index.html')
 
 def test_view(request):
     return render(request, 'accounts/test.html')

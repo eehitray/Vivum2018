@@ -1,6 +1,8 @@
 from django.shortcuts import render
 import requests
 
+from accounts.models import FalseUser
+
 import datetime
 
 def renderAll(request):
