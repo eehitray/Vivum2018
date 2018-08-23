@@ -94,7 +94,29 @@
                 </h1>
                 <p class="lead  text-white">Here you will find all the healthy recepies made by our expert lineup of cooks.</p>
                 </br>
-                <a href="form.html"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: white;">Submit a recipe</button></a>
+                <p style="color: lightgrey;">- Search a recipe - </p>
+                <div class="form-group">
+                  <div class="input-group mb-4" style="margin-right: 50px;">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Search by Name" type="text" style="margin-right: 0px;">
+                    <a href="form.html"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: white;">Search</button></a>
+                  </div>
+                  
+                </div>
+                <div class="form-group">
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Search by Ingredients" type="text">
+                    <a href="form.html"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: white;">Search</button></a>
+                  </div>                
+                </div>
+                <p style="color: lightgrey;">- Or add one here - </p>
+                <a href="form.html"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: white; color: white;">Submit a recipe</button></a>
+                <h1 class="display-3  text-white"></br>Placeholder</h1>
               </div>
             </div>
           </div>
@@ -115,7 +137,7 @@
                       <img src="{{recipe.picture}}" style="width: 100%; -moz-border-radius: 5px; background: #fff; border-radius: 5px;">
                     <h6 class="text-primary text-uppercase"></br>{{recipe.title}}</h6>
                     <p class="description mt-3">{{recipe.datePosted}}</p>
-                    <a href="#" class="btn btn-primary mt-4">See Recipe</a>
+                    <a href="{% url 'recipeblog:blog' recipe.title %}" class="btn btn-primary mt-4">See Recipe</a>
                   </div>
                 </div>
               </div>

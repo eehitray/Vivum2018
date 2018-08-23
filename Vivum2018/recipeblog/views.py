@@ -6,7 +6,7 @@ import datetime
 
 def index(request):
 	lastRecipes = Post.objects.order_by('-datePosted')
-	return render(request, 'recipeblog/index.html', {'lastRecipes': lastRecipes})
+	return render(request, 'recipeblog/index.html', {'lastRecipes': lastRecipes, 'text': 'All Recipes'})
 
 def submit(request):
 	if request.POST:
