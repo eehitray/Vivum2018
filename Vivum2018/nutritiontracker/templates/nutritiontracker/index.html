@@ -100,17 +100,18 @@
         </div>
       </section>
     </div>
-    {% if user.is_authenticated %}
+    
     <section class="section section-lg pt-lg-0 section-contact-us">
       <div class="container">
         <div class="row justify-content-center mt--300">
           <div class="col-lg-8">
             <div class="card bg-gradient-secondary shadow">
               <div class="card-body p-lg-5">
-                
-                <h4 class="mb-1">Enter your info here:</h4>
                 {% if error %}<p class="mt-0">{{error}}</p>{% endif %}
-                <form action="{% url 'recipeblog:submit' %}" method="post">
+                {% if displayForm %}
+                <h4 class="mb-1">Enter your info here:</h4>
+                
+                <form action="{% url 'nutritiontracker:updateDetails' %}" method="post">
                   {% csrf_token %}
                 <div class="form-group mt-5">
                   <h6>Age</h6>
@@ -118,7 +119,7 @@
                     <div class="col-lg-4 col-sm-6">
                       <div class="form-group">
                         <div class="input-group mb-4">
-                          <input class="form-control" placeholder="" type="text">
+                          <input class="form-control" placeholder="" type="text" name="age">
                           <div class="input-group-append">
                             <span class="input-group-text">years</span>
                           </div>
@@ -127,37 +128,14 @@
                     </div>
                   </div>
                 </div>
-                <h6>Gender</h6>
-                <div class="custom-control custom-radio mb-3">
-                  <input name="custom-radio-1" class="custom-control-input" id="customRadio1" type="radio">
-                  <label class="custom-control-label" for="customRadio1">
-                    <span>Male</span>
-                  </label>
-                </div>
-                <div class="custom-control custom-radio mb-3">
-                  <input name="custom-radio-1" class="custom-control-input" id="customRadio2" checked type="radio">
-                  <label class="custom-control-label" for="customRadio2">
-                    <span>Female</span>
-                  </label>
-                </div>
                 <h6>Height</h6>
                 <div class="row">
                   <div class="col-lg-4 col-sm-6">
                     <div class="form-group">
                       <div class="input-group mb-4">
-                        <input class="form-control" placeholder="" type="text">
+                        <input class="form-control" placeholder="" type="text" name="height">
                         <div class="input-group-append">
-                          <span class="input-group-text">feet</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="form-group">
-                      <div class="input-group mb-4">
-                        <input class="form-control" placeholder="" type="text">
-                        <div class="input-group-append">
-                          <span class="input-group-text">inches</span>
+                          <span class="input-group-text">cm</span>
                         </div>
                       </div>
                     </div>
@@ -168,35 +146,51 @@
                   <div class="col-lg-4 col-sm-6">
                     <div class="form-group">
                       <div class="input-group mb-4">
-                        <input class="form-control" placeholder="" type="text">
+                        <input class="form-control" placeholder="" type="text" name="weight">
                         <div class="input-group-append">
-                          <span class="input-group-text">pounds</span>
+                          <span class="input-group-text">kg</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <h6>Activity</h6>
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white;">
-                    Select An Activity
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Basal Metabolic Rate (BMR)</a>
-                    <a class="dropdown-item" href="#">Sedentary - little or no exercise</a>
-                    <a class="dropdown-item" href="#">Lightly Active - exercise/sports 1-3 times/week</a>
-                    <a class="dropdown-item" href="#">Very Active - exercise/sports 6-7 times/week</a>
-                    <a class="dropdown-item" href="#">Extra Active - very hard exercise/sports or physical job</a>
-                  </div>
+                 <div class="custom-control custom-radio mb-3">
+                  <input name="activity" class="custom-control-input" id="customRadio1" checked type="radio">
+                  <label class="custom-control-label" for="customRadio1">
+                    <span>Sedentary - little or no exercise</span>
+                  </label>
+                </div>
+                <div class="custom-control custom-radio mb-3">
+                  <input name="activity" class="custom-control-input" id="customRadio2" type="radio">
+                  <label class="custom-control-label" for="customRadio2">
+                    <span>Lightly Active - exercise/sports 1-3 times/week</span>
+                  </label>
+                </div>
+
+                <div class="custom-control custom-radio mb-3">
+                  <input name="activity" class="custom-control-input" id="customRadio1" checked type="radio">
+                  <label class="custom-control-label" for="customRadio3">
+                    <span>Very Active - exercise/sports 6-7 times/week</span>
+                  </label>
+                </div>
+                <div class="custom-control custom-radio mb-3">
+                  <input name="activity" class="custom-control-input" id="customRadio2" type="radio">
+                  <label class="custom-control-label" for="customRadio4">
+                    <span>Extra Active - very hard exercise/sports or physical job</span>
+                  </label>
                 </div>
                 <p></br></p>
-                <button type="button" class="btn btn-primary">Calculate</button>
+                <button type="submit" class="btn btn-primary">Calculate</button>
+               
               </form>
+               {% endif %}
               </div>
             </div>
-            <h5></br></br>Your Curent Goal : </h5><p style="text-align: center;"></br>placeholder by placeholder</br></p>
+            {% if resultsDict %}
+            <h5></br></br>Your Curent Goal : </h5><p style="text-align: center;"></br>{{resultsDict.calGol}} by {{resultsDict.calDate}}</br></p>
             <h5></br>Enter food consumed : </br></br></h5>
-            <form role="form" action="{% url 'accounts:login'  %}" method="post">
+            <form role="form" action="{% url 'nutritiontracker:submitFood'  %}" method="post">
               {% csrf_token %}
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
@@ -214,24 +208,18 @@
             <div class="col-lg-4" style="padding-bottom: 3em;">
               <div class="card card-lift--hover shadow border-0">
                 <div class="card-body py-5">
-                  <img src="{{recipe.picture}}" style="width: 100%; -moz-border-radius: 5px; background: #fff; border-radius: 5px;">
                   <h6 class="text-primary text-uppercase"></br>Apple</h6>
                   <p class="description mt-3">Calories</p>    
                 </div>
               </div>
             </div>              
             <p class="description mt-3">Added Food</p>
+            {% endif %}
           </div>
         </div>
       </div>
     </section>
-    {% else %}
-    <h1>
-      <br/>
-      You need to <a href="{% url 'accounts.signup'  %}">sign in</a> to access the nutrition tracker
-      <br/>
-    </h1>
-    {% endif %}
+
   </main>
   <footer class="footer has-cards">
     <div class="container container-lg">
