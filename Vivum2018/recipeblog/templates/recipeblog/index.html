@@ -136,7 +136,7 @@
                       <img src="{{recipe.picture}}" style="width: 100%; -moz-border-radius: 5px; background: #fff; border-radius: 5px;">
                     <h6 class="text-primary text-uppercase"></br>{{recipe.title}}</h6>
                     <p class="description mt-3">{{recipe.datePosted}}</p>
-                    <a href="#" class="btn btn-primary mt-4">See Recipe</a>
+                    <a href="{% url 'recipeblog:blog' recipe.title %}" class="btn btn-primary mt-4">See Recipe</a>
                   </div>
                 </div>
               </div>

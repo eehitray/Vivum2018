@@ -104,12 +104,12 @@
           </div>
           <div class="col-sm-9">
             {% if postedBy %}
-            <h5 class="mb-0" style="color: black;">{{postedBy}}&emsp;&emsp;&emsp;&nbsp;:</h5>
+            <h5 class="mb-0" style="color: black;">Made by {{postedBy}}&emsp;&emsp;&emsp;&nbsp;</h5>
             {% endif %}
             {% if datePosted %}
             <h5 class="mb-0" style="color: black;">{{datePosted}}</h5>
             {% endif %}
-            <h5 class="mb-0" style="color: black;">Ingredients&emsp;&emsp;&nbsp;&nbsp;&nbsp;:</h5>
+            <h5 class="mb-0" style="color: black;">Ingredients:</h5>
             {% if ingredients %}
             <ul>
               {% for ingredient in ingredients %}
@@ -120,7 +120,7 @@
             {% endif %}
           </div>
         </div>
-        <h5 class="mb-0" style="color: black;">Instructions:</h5>
+        <h5 class="mb-0" style="color: black;">Instructions</h5>
         {% if contents %}
         <p>{{contents}}</p>
         {% endif %}
