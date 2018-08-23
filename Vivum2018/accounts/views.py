@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login
+from .models import FalseUser
 
 def signup_view(request):
     if request.method == 'POST':
@@ -8,6 +9,10 @@ def signup_view(request):
 
         if form.is_valid():
             user = form.save()
+            f = FalseUser(
+                    gender = request.POST['gender']
+                )
+            f.save()
             login(request, user)
             return redirect('accounts:test')
     return render(request, 'accounts/register.html')
