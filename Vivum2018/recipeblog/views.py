@@ -69,12 +69,18 @@ def sbIngredients(request):
 		l = Post.objects.order_by('title')
 		ln = []
 		for i in l:
-			flag = 1
+			flag = 0
 			k = i.getIngredientsList()[1:len(i.getIngredientsList()) - 1].split(', ')
 			for j in ingredients.split(', '):
+				for r in k:
+					if j.lower() in r.lower():
+						flag = 1
+						break 
+				'''
 				if j not in k:
 					flag = 0
 					break
+				'''
 			if (flag):
 				ln.append(i)
 		if (len(ln) == 0):

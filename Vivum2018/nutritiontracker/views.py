@@ -26,7 +26,7 @@ def submitFood(request):
 		print(r)
 		j = r.json()
 
-		rData = {'name': request.POST['food'], 'cals': (j['parsed'][0]['food']['nutrients']['ENERC_KCAL'] * int(request.POST['qty']))/100}
+		rData = {'name': request.POST['food'], 'cals': int((j['parsed'][0]['food']['nutrients']['ENERC_KCAL'] * int(request.POST['qty']))/100)}
 		resultsDict = {'calGol': falseUser.calorieGoal, 'calDate': falseUser.calorieDate}
 
 		falseUser.calorieGoal -= (j['parsed'][0]['food']['nutrients']['ENERC_KCAL'] * int(request.POST['qty']))/100

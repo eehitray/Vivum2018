@@ -113,7 +113,7 @@
               <div class="card-body p-lg-5">
                 <h4 class="mb-1">Enter your recipe here:</h4>
                 {% if error %}<p class="mt-0">{{error}}</p>{% endif %}
-                <form action="" method="post">
+                <form action="{% url 'recipeblog:submit' %}" method="post">
                   {% csrf_token %}
                 <div class="form-group mt-5">
                   <div class="input-group input-group-alternative">
