@@ -161,8 +161,8 @@
               </form>
                {% endif %}
             {% if resultsDict %}
-            <h5 style="text-align: center;"></br></br>Your Curent Goal : </h5><p style="text-align: center;"></br>{{resultsDict.calGol}} by {{resultsDict.calDate}}</br></p>
-            <h5 style="text-align: center;"></br>Enter food consumed : </br></br></h5>
+            <h5 style="text-align: center;"></br></br>Your Curent Goal</h5><h3 style="text-align: center;"></br><b>{{resultsDict.calGol}}</b> by <b>{{resultsDict.calDate}}</b></br></h3>
+            <h5 style="text-align: center;"></br>Enter food consumed</br></br></h5>
             <form role="form" action="{% url 'nutritiontracker:submitFood'  %}" method="post">
               {% csrf_token %}
               <div class="form-group">
