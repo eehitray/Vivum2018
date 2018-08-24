@@ -160,19 +160,21 @@
                
               </form>
                {% endif %}
-              </div>
-            </div>
             {% if resultsDict %}
-            <h5></br></br>Your Curent Goal : </h5><p style="text-align: center;"></br>{{resultsDict.calGol}} by {{resultsDict.calDate}}</br></p>
-            <h5></br>Enter food consumed : </br></br></h5>
+            <h5 style="text-align: center;"></br></br>Your Curent Goal : </h5><p style="text-align: center;"></br>{{resultsDict.calGol}} by {{resultsDict.calDate}}</br></p>
+            <h5 style="text-align: center;"></br>Enter food consumed : </br></br></h5>
             <form role="form" action="{% url 'nutritiontracker:submitFood'  %}" method="post">
               {% csrf_token %}
               <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
+                <div class="input-group input-group-alternative mb-4">
                   <input class="form-control" placeholder="Name" type="text" name="food" autofocus required id="id_username">
+                </div>
+              </div>  
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
                   <input class="form-control" placeholder="Quantity in grams" type="text" name="qty">
                 </div>
-              </div>    
+              </div>
               <div class="text-center">
                 <input type="submit" class="btn btn-primary mt-4" value="Submit"/ >
               </div>
@@ -189,9 +191,10 @@
                 </div>
               </div>
             </div>              
-            <p class="description mt-3">Added Food</p>
             {% endif %}
             {% endif %}
+              </div>
+            </div>
           </div>
         </div>
       </div>
