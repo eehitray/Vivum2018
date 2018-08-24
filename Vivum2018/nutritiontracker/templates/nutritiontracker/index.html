@@ -50,25 +50,29 @@
               <a href="{% url 'recipeblog:index' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Recipe Blog</button></a>
             </li>
             <li class="nav-item dropdown">
+              <a href="{% url 'nutritiontracker:renderAll' %}"></a>
               <button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Nutrition</button>
+            </a>
             </li>
           </ul>
           <ul class="navbar-nav align-items-lg-center ml-lg-auto">            
-            <!-- Sign Up -->
+            {% if not user.is_authenticated %}
             <li class="nav-item dropdown">
-              <a href="{% url 'recipeblog:index' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Sign In</button></a>
+              <a href="{% url 'accounts:login' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Sign In</button></a>
             </li>
             <li class="nav-item d-none d-lg-block ml-lg-4">
               <a href="{% url 'accounts:signup' %}" target="_blank" class="btn btn-neutral btn-icon">
                 <span class="nav-link-inner--text">Sign Up</span>
               </a>
             </li>
+            {% else %}
             <li class="nav-item dropdown">
               <a href="{% url 'accounts:logout' %}"><button type="button" class="btn btn-secondary btn-lg" disabled style="background-color: transparent; color: white; border-color: transparent;">Logged in as: {{user.get_username}}</button></a>
             </li>
             <li class="nav-item dropdown">
               <a href="{% url 'accounts:logout' %}"><button class="btn btn-1 btn-outline-primary" type="button" style="border-color: transparent; color: lightgrey;">Sign Out</button></a>
             </li>
+            {% endif %}
           </ul>
         </div>
       </div>
