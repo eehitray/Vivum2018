@@ -16,6 +16,7 @@ def submit(request):
 			ingredients = request.POST['ingredients']
 			url = request.POST['url']
 			instructions = request.POST['instructions']
+			calorie = request.POST['calorie']
 		except:
 			return render(request, 'recipeblog/form.html', {error: 'You have left one or more fields blank.'})
 		else:
@@ -25,7 +26,8 @@ def submit(request):
 					ingredients='',
 					contents=instructions,
 					picture=url,
-					datePosted=datetime.date.today()
+					datePosted=datetime.date.today(),
+					calorie=calorie
 				)
 			ingredients = "'" + ingredients + "'"
 			p.setIngredients(ingredientsText = ingredients)
@@ -48,8 +50,9 @@ def blog(request, rname):
 		contents = q.contents
 		picture = q.picture
 		date = q.datePosted
+		calorie = q.calorie
 		print(ingredients)
-		return render(request, 'recipeblog/recipedetail.html', {'title': title, 'postedBy': postedBy, 'ingredients': ingredients, 'contents': contents, 'picture': picture, 'datePosted': date})
+		return render(request, 'recipeblog/recipedetail.html', {'title': title, 'postedBy': postedBy, 'ingredients': ingredients, 'contents': contents, 'picture': picture, 'datePosted': date, 'calorie': str(calorie)})
 
 def sbName(request):
 	if (request.POST):

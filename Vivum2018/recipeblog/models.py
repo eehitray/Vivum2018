@@ -6,6 +6,7 @@ class Post(models.Model):
 	ingredients = models.CharField(max_length=10000)
 	contents = models.TextField()
 	picture = models.URLField(max_length=500)
+	calorie = models.IntegerField()
 	datePosted = models.DateField('Date published')
 
 	def setIngredients(self, ingredientsText):
