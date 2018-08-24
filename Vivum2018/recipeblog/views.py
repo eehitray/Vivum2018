@@ -52,7 +52,7 @@ def blog(request, rname):
 		date = q.datePosted
 		calorie = q.calorie
 		print(ingredients)
-		return render(request, 'recipeblog/recipedetail.html', {'title': title, 'postedBy': postedBy, 'ingredients': ingredients, 'contents': contents, 'picture': picture, 'datePosted': date, 'calorie': calorie})
+		return render(request, 'recipeblog/recipedetail.html', {'title': title, 'postedBy': postedBy, 'ingredients': ingredients, 'contents': contents, 'picture': picture, 'datePosted': date, 'calorie': str(calorie)})
 
 def sbName(request):
 	if (request.POST):
