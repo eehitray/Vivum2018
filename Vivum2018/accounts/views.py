@@ -14,7 +14,7 @@ def signup_view(request):
             )
             f.save()
             login(request, user)
-            return redirect('accounts:signup')
+            return render(request, 'index.html')
     return render(request, 'accounts/signup.html')
 
 def login_view(request):

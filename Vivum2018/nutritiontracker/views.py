@@ -27,11 +27,11 @@ def submitFood(request):
 		j = r.json()
 
 		rData = {'name': request.POST['food'], 'cals': (j['parsed'][0]['food']['nutrients']['ENERC_KCAL'] * int(request.POST['qty']))/100}
-		resultsDict = {'calGol': falseUser.calorieGoal, 'calDate': falseUser.calorieDate, 'recipeFound': rData}
+		resultsDict = {'calGol': falseUser.calorieGoal, 'calDate': falseUser.calorieDate}
 
 		falseUser.calorieGoal -= (j['parsed'][0]['food']['nutrients']['ENERC_KCAL'] * int(request.POST['qty']))/100
 		falseUser.save()
-		return render(request, 'nutritiontracker/index.html', {'resultsDict': resultsDict})
+		return render(request, 'nutritiontracker/index.html', {'resultsDict': resultsDict, 'recipeFound': rData})
 	else:
 		return render(request, '404.html')
 
