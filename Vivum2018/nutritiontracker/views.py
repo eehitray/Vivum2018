@@ -13,7 +13,12 @@ def renderAll(request):
 		if (falseUser.height == -1):
 			return render(request, 'nutritiontracker/index.html', {'displayForm': 'True'})
 		else:
-			resultsDict = {'calGol': falseUser.calorieGoal, 'calDate': falseUser.calorieDate}
+			#resultsDict = {'calGol': falseUser.calorieGoal, 'calDate': falseUser.calorieDate}
+			resultsDict = ''
+			if falseUser.calorieGoal <= 0:
+				resultsDict = 'You have met your minimum calorie requirement for the week.'
+			else:
+				resultsDict = str(falseUser.calorieGoal) + ' kcal by ' + str(falseUser.calorieDate)
 			return render(request, 'nutritiontracker/index.html', {'resultsDict': resultsDict})
 
 def submitFood(request):
@@ -27,7 +32,11 @@ def submitFood(request):
 		j = r.json()
 
 		rData = {'name': request.POST['food'], 'cals': int((j['parsed'][0]['food']['nutrients']['ENERC_KCAL'] * int(request.POST['qty']))/100)}
-		resultsDict = {'calGol': falseUser.calorieGoal, 'calDate': falseUser.calorieDate}
+		resultsDict = ''
+		if falseUser.calorieGoal <= 0:
+			resultsDict = 'You have met your minimum calorie requirement for the week.'
+		else:
+			resultsDict = str(falseUser.calorieGoal) + ' kcal by ' + str(falseUser.calorieDate)
 
 		falseUser.calorieGoal -= (j['parsed'][0]['food']['nutrients']['ENERC_KCAL'] * int(request.POST['qty']))/100
 		falseUser.save()
