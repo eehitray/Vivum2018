@@ -115,7 +115,7 @@
       </section>
     </div>
     <section class="section section-components pb-0" id="section-components"></section>
-    <section class="section section-lg">
+    <section class="section section-lg" style="height: 100%;">
       <div class="container">
         <div class="row row-grid align-items-center">
           <div class="col-md-6 order-md-2">
@@ -127,7 +127,49 @@
                 <i class="ni ni-user-run"></i>
               </div>
               <h3>What is Wefit?</h3>
-              <p style="font-size: 20px;">A one-stop destination for all your heath and fitness requirements.</p>
+              <p style="font-size: 20px;" id="colormix">A one-stop destination for all your heath and fitness requirements.</p>
+              <script>
+              	var colourizer = setInterval(colorchange, 1);
+              	var r = 0;
+		        var g = 0;
+		        var b = 0;
+		        var flag = 0;
+             	function colorchange()
+             	{	
+             		if(r<256 && flag != 2 && flag != 3) 
+             		{
+             			r++;
+             			flag = 1;
+             			if (b >= 0) 
+             			{
+             				b--;
+             			}
+             		}
+             		else
+             		{
+             			flag = 2;
+             		}
+             		if(flag == 2)
+             		{
+             			g++;
+             			r--;
+             		}
+             		if(g == 256)
+             		{
+             			flag = 3;
+             		}
+             		if (flag == 3) 
+             		{
+             			b++;
+             			g--;
+             		}
+             		if (b == 256) 
+             		{
+             			flag = 1;
+             		}
+					document.getElementById("colormix").style.color = "rgb(" + r + "," + g + "," + b + ")";
+             	}
+			  </script>
               <ul class="list-unstyled mt-5">
                 <li class="py-2">
                   <div class="d-flex align-items-center">
